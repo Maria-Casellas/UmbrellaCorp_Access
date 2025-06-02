@@ -1,0 +1,156 @@
+<html>
+<head>
+<title>UmbrellaCorp_AccessBracelet.json</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #bcbec4;}
+.s1 { color: #bcbec4;}
+.s2 { color: #6aab73;}
+.s3 { color: #cf8e6d;}
+.s4 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+UmbrellaCorp_AccessBracelet.json</font>
+</center></td></tr></table>
+<pre><span class="s0">{</span>
+  <span class="s2">&quot;$schema&quot;</span><span class="s0">: </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="s0">,</span>
+  <span class="s2">&quot;title&quot;</span><span class="s0">: </span><span class="s2">&quot;UmbrellaCorp_AccessBracelet&quot;</span><span class="s0">,</span>
+  <span class="s2">&quot;description&quot;</span><span class="s0">: </span><span class="s2">&quot;Sistema de pulseras ID para laboratorios NEST - ¡Código Rojo activado!&quot;</span><span class="s0">,</span>
+  <span class="s2">&quot;type&quot;</span><span class="s0">: </span><span class="s2">&quot;object&quot;</span><span class="s0">,</span>
+  <span class="s2">&quot;additionalProperties&quot;</span><span class="s0">: </span><span class="s3">false</span><span class="s0">,</span>
+  <span class="s2">&quot;required&quot;</span><span class="s0">: [</span><span class="s2">&quot;braceletId&quot;</span><span class="s0">, </span><span class="s2">&quot;securityLevel&quot;</span><span class="s0">, </span><span class="s2">&quot;owner&quot;</span><span class="s0">, </span><span class="s2">&quot;lastAccess&quot;</span><span class="s0">, </span><span class="s2">&quot;location&quot;</span><span class="s0">],</span>
+  <span class="s2">&quot;properties&quot;</span><span class="s0">: {</span>
+    <span class="s2">&quot;braceletId&quot;</span><span class="s0">: {</span>
+      <span class="s2">&quot;type&quot;</span><span class="s0">: </span><span class="s2">&quot;string&quot;</span><span class="s0">,</span>
+      <span class="s2">&quot;pattern&quot;</span><span class="s0">: </span><span class="s2">&quot;^UMB-[A-Z0-9]{3}-[T-V]</span><span class="s3">\\</span><span class="s2">d$&quot;</span><span class="s0">,</span>
+      <span class="s2">&quot;description&quot;</span><span class="s0">: </span><span class="s2">&quot;Código único (UMB-H79-V2). 'T-V' indica serie experimental con virus.&quot;</span>
+    <span class="s0">},</span>
+    <span class="s2">&quot;securityLevel&quot;</span><span class="s0">: {</span>
+      <span class="s2">&quot;type&quot;</span><span class="s0">: </span><span class="s2">&quot;string&quot;</span><span class="s0">,</span>
+      <span class="s2">&quot;enum&quot;</span><span class="s0">: [</span><span class="s2">&quot;D-Class&quot;</span><span class="s0">, </span><span class="s2">&quot;C-Class&quot;</span><span class="s0">, </span><span class="s2">&quot;B-Class&quot;</span><span class="s0">, </span><span class="s2">&quot;A-Class&quot;</span><span class="s0">, </span><span class="s2">&quot;S-Class&quot;</span><span class="s0">],</span>
+      <span class="s2">&quot;description&quot;</span><span class="s0">: </span><span class="s2">&quot;Nivel de acceso: D-Class (limpieza) a S-Class (Wesker/Miranda).&quot;</span>
+    <span class="s0">},</span>
+    <span class="s2">&quot;owner&quot;</span><span class="s0">: {</span>
+      <span class="s2">&quot;type&quot;</span><span class="s0">: </span><span class="s2">&quot;object&quot;</span><span class="s0">,</span>
+      <span class="s2">&quot;required&quot;</span><span class="s0">: [</span><span class="s2">&quot;employeeId&quot;</span><span class="s0">],</span>
+      <span class="s2">&quot;properties&quot;</span><span class="s0">: {</span>
+        <span class="s2">&quot;employeeId&quot;</span><span class="s0">: {</span>
+          <span class="s2">&quot;type&quot;</span><span class="s0">: </span><span class="s2">&quot;string&quot;</span><span class="s0">,</span>
+          <span class="s2">&quot;pattern&quot;</span><span class="s0">: </span><span class="s2">&quot;^[0-9]{5}Z$&quot;</span><span class="s0">,</span>
+          <span class="s2">&quot;description&quot;</span><span class="s0">: </span><span class="s2">&quot;ID seudonimizado. 'Z' indica riesgo de zombificación.&quot;</span>
+        <span class="s0">},</span>
+        <span class="s2">&quot;department&quot;</span><span class="s0">: {</span>
+          <span class="s2">&quot;type&quot;</span><span class="s0">: </span><span class="s2">&quot;string&quot;</span><span class="s0">,</span>
+          <span class="s2">&quot;enum&quot;</span><span class="s0">: [</span><span class="s2">&quot;Virology&quot;</span><span class="s0">, </span><span class="s2">&quot;Bio-Weapons&quot;</span><span class="s0">, </span><span class="s2">&quot;Quantum Physics&quot;</span><span class="s0">, </span><span class="s2">&quot;Janitorial&quot;</span><span class="s0">],</span>
+          <span class="s2">&quot;description&quot;</span><span class="s0">: </span><span class="s2">&quot;Área asignada (¡Bio-Weapons requiere S-Class!).&quot;</span>
+        <span class="s0">}</span>
+      <span class="s0">},</span>
+      <span class="s2">&quot;additionalProperties&quot;</span><span class="s0">: </span><span class="s3">false</span>
+    <span class="s0">},</span>
+    <span class="s2">&quot;location&quot;</span><span class="s0">: {</span>
+      <span class="s2">&quot;type&quot;</span><span class="s0">: </span><span class="s2">&quot;string&quot;</span><span class="s0">,</span>
+      <span class="s2">&quot;enum&quot;</span><span class="s0">: [</span><span class="s2">&quot;NEST-1&quot;</span><span class="s0">, </span><span class="s2">&quot;NEST-2&quot;</span><span class="s0">, </span><span class="s2">&quot;Arklay_Lab&quot;</span><span class="s0">, </span><span class="s2">&quot;Antarctic_Base&quot;</span><span class="s0">],</span>
+      <span class="s2">&quot;description&quot;</span><span class="s0">: </span><span class="s2">&quot;Instalación donde la pulsera está activa.&quot;</span>
+    <span class="s0">},</span>
+    <span class="s2">&quot;lastAccess&quot;</span><span class="s0">: {</span>
+      <span class="s2">&quot;type&quot;</span><span class="s0">: </span><span class="s2">&quot;string&quot;</span><span class="s0">,</span>
+      <span class="s2">&quot;format&quot;</span><span class="s0">: </span><span class="s2">&quot;date-time&quot;</span><span class="s0">,</span>
+      <span class="s2">&quot;description&quot;</span><span class="s0">: </span><span class="s2">&quot;Último registro de uso (para rastrear brotes).&quot;</span>
+    <span class="s0">},</span>
+    <span class="s2">&quot;activeRestrictions&quot;</span><span class="s0">: {</span>
+      <span class="s2">&quot;type&quot;</span><span class="s0">: </span><span class="s2">&quot;array&quot;</span><span class="s0">,</span>
+      <span class="s2">&quot;items&quot;</span><span class="s0">: {</span>
+        <span class="s2">&quot;type&quot;</span><span class="s0">: </span><span class="s2">&quot;string&quot;</span><span class="s0">,</span>
+        <span class="s2">&quot;enum&quot;</span><span class="s0">: [</span><span class="s2">&quot;T-Virus_Lock&quot;</span><span class="s0">, </span><span class="s2">&quot;G-Virus_Block&quot;</span><span class="s0">, </span><span class="s2">&quot;Lasers_Disabled&quot;</span><span class="s0">, </span><span class="s2">&quot;Lab_Under_Quarantine&quot;</span><span class="s0">]</span>
+      <span class="s0">},</span>
+      <span class="s2">&quot;description&quot;</span><span class="s0">: </span><span class="s2">&quot;Restricciones activas (ej: cuarentena por fuga).&quot;</span>
+    <span class="s0">},</span>
+    <span class="s2">&quot;biometricData&quot;</span><span class="s0">: {</span>
+      <span class="s2">&quot;type&quot;</span><span class="s0">: </span><span class="s2">&quot;object&quot;</span><span class="s0">,</span>
+      <span class="s2">&quot;properties&quot;</span><span class="s0">: {</span>
+        <span class="s2">&quot;bloodType&quot;</span><span class="s0">: {</span>
+          <span class="s2">&quot;type&quot;</span><span class="s0">: </span><span class="s2">&quot;string&quot;</span><span class="s0">,</span>
+          <span class="s2">&quot;pattern&quot;</span><span class="s0">: </span><span class="s2">&quot;^[A-B]{1,2}[+-]$&quot;</span><span class="s0">,</span>
+          <span class="s2">&quot;description&quot;</span><span class="s0">: </span><span class="s2">&quot;Tipo sanguíneo (O- es inmune al T-Virus).&quot;</span>
+        <span class="s0">},</span>
+        <span class="s2">&quot;infectionStatus&quot;</span><span class="s0">: {</span>
+          <span class="s2">&quot;type&quot;</span><span class="s0">: </span><span class="s2">&quot;string&quot;</span><span class="s0">,</span>
+          <span class="s2">&quot;enum&quot;</span><span class="s0">: [</span><span class="s2">&quot;Clean&quot;</span><span class="s0">, </span><span class="s2">&quot;T-Virus_Carrier&quot;</span><span class="s0">, </span><span class="s2">&quot;G-Virus_Mutant&quot;</span><span class="s0">, </span><span class="s2">&quot;Unknown&quot;</span><span class="s0">],</span>
+          <span class="s2">&quot;default&quot;</span><span class="s0">: </span><span class="s2">&quot;Unknown&quot;</span>
+        <span class="s0">},</span>
+        <span class="s2">&quot;mutations&quot;</span><span class="s0">: {</span>
+          <span class="s2">&quot;type&quot;</span><span class="s0">: </span><span class="s2">&quot;array&quot;</span><span class="s0">,</span>
+          <span class="s2">&quot;items&quot;</span><span class="s0">: {</span>
+            <span class="s2">&quot;type&quot;</span><span class="s0">: </span><span class="s2">&quot;string&quot;</span><span class="s0">,</span>
+            <span class="s2">&quot;enum&quot;</span><span class="s0">: [</span><span class="s2">&quot;Tyrant_Strain&quot;</span><span class="s0">, </span><span class="s2">&quot;Licker_Proto&quot;</span><span class="s0">, </span><span class="s2">&quot;Hunter_Gamma&quot;</span><span class="s0">]</span>
+          <span class="s0">}</span>
+        <span class="s0">}</span>
+      <span class="s0">},</span>
+      <span class="s2">&quot;additionalProperties&quot;</span><span class="s0">: </span><span class="s3">false</span>
+    <span class="s0">},</span>
+    <span class="s2">&quot;selfDestructProtocol&quot;</span><span class="s0">: {</span>
+      <span class="s2">&quot;type&quot;</span><span class="s0">: </span><span class="s2">&quot;object&quot;</span><span class="s0">,</span>
+      <span class="s2">&quot;properties&quot;</span><span class="s0">: {</span>
+        <span class="s2">&quot;isActive&quot;</span><span class="s0">: {</span>
+          <span class="s2">&quot;type&quot;</span><span class="s0">: </span><span class="s2">&quot;boolean&quot;</span><span class="s0">,</span>
+          <span class="s2">&quot;description&quot;</span><span class="s0">: </span><span class="s2">&quot;Autodestrucción al detectar fugas B.O.W.&quot;</span>
+        <span class="s0">},</span>
+        <span class="s2">&quot;countdown&quot;</span><span class="s0">: {</span>
+          <span class="s2">&quot;type&quot;</span><span class="s0">: </span><span class="s2">&quot;integer&quot;</span><span class="s0">,</span>
+          <span class="s2">&quot;minimum&quot;</span><span class="s0">: </span><span class="s4">5</span><span class="s0">,</span>
+          <span class="s2">&quot;maximum&quot;</span><span class="s0">: </span><span class="s4">60</span><span class="s0">,</span>
+          <span class="s2">&quot;description&quot;</span><span class="s0">: </span><span class="s2">&quot;Segundos antes de explosión (solo S-Class).&quot;</span>
+        <span class="s0">}</span>
+      <span class="s0">},</span>
+      <span class="s2">&quot;additionalProperties&quot;</span><span class="s0">: </span><span class="s3">false</span>
+    <span class="s0">},</span>
+    <span class="s2">&quot;zombieOutbreakInProgress&quot;</span><span class="s0">: {</span>
+      <span class="s2">&quot;type&quot;</span><span class="s0">: </span><span class="s2">&quot;boolean&quot;</span><span class="s0">,</span>
+      <span class="s2">&quot;description&quot;</span><span class="s0">: </span><span class="s2">&quot;¡True activa protocolos de emergencia!&quot;</span>
+    <span class="s0">}</span>
+  <span class="s0">},</span>
+  <span class="s2">&quot;if&quot;</span><span class="s0">: {</span>
+    <span class="s2">&quot;properties&quot;</span><span class="s0">: {</span>
+      <span class="s2">&quot;securityLevel&quot;</span><span class="s0">: { </span><span class="s2">&quot;const&quot;</span><span class="s0">: </span><span class="s2">&quot;S-Class&quot; </span><span class="s0">}</span>
+    <span class="s0">}</span>
+  <span class="s0">},</span>
+  <span class="s2">&quot;then&quot;</span><span class="s0">: {</span>
+    <span class="s2">&quot;required&quot;</span><span class="s0">: [</span><span class="s2">&quot;selfDestructProtocol&quot;</span><span class="s0">],</span>
+    <span class="s2">&quot;properties&quot;</span><span class="s0">: {</span>
+      <span class="s2">&quot;selfDestructProtocol&quot;</span><span class="s0">: {</span>
+        <span class="s2">&quot;properties&quot;</span><span class="s0">: {</span>
+          <span class="s2">&quot;isActive&quot;</span><span class="s0">: { </span><span class="s2">&quot;const&quot;</span><span class="s0">: </span><span class="s3">true </span><span class="s0">}</span>
+        <span class="s0">}</span>
+      <span class="s0">}</span>
+    <span class="s0">}</span>
+  <span class="s0">},</span>
+  <span class="s2">&quot;examples&quot;</span><span class="s0">: [</span>
+    <span class="s0">{</span>
+      <span class="s2">&quot;braceletId&quot;</span><span class="s0">: </span><span class="s2">&quot;UMB-X02-T1&quot;</span><span class="s0">,</span>
+      <span class="s2">&quot;securityLevel&quot;</span><span class="s0">: </span><span class="s2">&quot;S-Class&quot;</span><span class="s0">,</span>
+      <span class="s2">&quot;owner&quot;</span><span class="s0">: {</span>
+        <span class="s2">&quot;employeeId&quot;</span><span class="s0">: </span><span class="s2">&quot;00001Z&quot;</span><span class="s0">,</span>
+        <span class="s2">&quot;department&quot;</span><span class="s0">: </span><span class="s2">&quot;Bio-Weapons&quot;</span>
+      <span class="s0">},</span>
+      <span class="s2">&quot;location&quot;</span><span class="s0">: </span><span class="s2">&quot;NEST-2&quot;</span><span class="s0">,</span>
+      <span class="s2">&quot;lastAccess&quot;</span><span class="s0">: </span><span class="s2">&quot;1998-09-29T23:50:00Z&quot;</span><span class="s0">,</span>
+      <span class="s2">&quot;selfDestructProtocol&quot;</span><span class="s0">: {</span>
+        <span class="s2">&quot;isActive&quot;</span><span class="s0">: </span><span class="s3">true</span><span class="s0">,</span>
+        <span class="s2">&quot;countdown&quot;</span><span class="s0">: </span><span class="s4">10</span>
+      <span class="s0">},</span>
+      <span class="s2">&quot;biometricData&quot;</span><span class="s0">: {</span>
+        <span class="s2">&quot;bloodType&quot;</span><span class="s0">: </span><span class="s2">&quot;O-&quot;</span><span class="s0">,</span>
+        <span class="s2">&quot;infectionStatus&quot;</span><span class="s0">: </span><span class="s2">&quot;G-Virus_Mutant&quot;</span><span class="s0">,</span>
+        <span class="s2">&quot;mutations&quot;</span><span class="s0">: [</span><span class="s2">&quot;Tyrant_Strain&quot;</span><span class="s0">]</span>
+      <span class="s0">},</span>
+      <span class="s2">&quot;zombieOutbreakInProgress&quot;</span><span class="s0">: </span><span class="s3">true</span>
+    <span class="s0">}</span>
+  <span class="s0">]</span>
+<span class="s0">}</span>
+</pre>
+</body>
+</html>
