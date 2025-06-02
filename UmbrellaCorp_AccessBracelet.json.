@@ -1,0 +1,113 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UmbrellaCorp_AccessBracelet",
+  "description": "Sistema de pulseras ID para laboratorios NEST",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["braceletId", "securityLevel", "owner", "lastAccess"],
+  "properties": {
+    "braceletId": {
+      "type": "string",
+      "pattern": "^UMB-[A-Z0-9]{3}-[T-V]\\d$",
+      "description": "Código único de la pulsera (UMB-H79-V2). 'T-V' indica serie experimental."
+    },
+    "securityLevel": {
+      "type": "string",
+      "enum": ["D-Class", "C-Class", "B-Class", "A-Class", "S-Class"],
+      "description": "Nivel de acceso: D-Class (limpieza) a S-Class (Wesker/Miranda)."
+    },
+    "owner": {
+      "type": "object",
+      "required": ["employeeId"],
+      "properties": {
+        "employeeId": {
+          "type": "string",
+          "pattern": "^[0-9]{5}Z$",
+          "description": "ID seudonimizado (PET: Último dígito 'Z' indica zombificación potencial)."
+        },
+        "department": {
+          "type": "string",
+          "enum": ["Virology", "Bio-Weapons", "Quantum Physics", "Janitorial"],
+          "description": "Área asignada (¡Virology requiere A-Class o superior!)."
+        }
+      },
+      "additionalProperties": false
+    },
+    "lastAccess": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Último registro de uso (para rastrear brotes)."
+    },
+    "activeRestrictions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["T-Virus_Lock", "G-Virus_Block", "Lasers_Disabled", "Lab_Under_Quarantine"]
+      },
+      "description": "Restricciones activas en la pulsera (bloqueo por contaminación)."
+    },
+    "biometricData": {
+      "type": "object",
+      "properties": {
+        "bloodType": {
+          "type": "string",
+          "pattern": "^[A-B]{1,2}[+-]$",
+          "description": "Tipo sanguíneo (¡Umbrella lo usa para experimentos!)."
+        },
+        "infectionStatus": {
+          "type": "string",
+          "enum": ["Clean", "T-Virus_Carrier", "G-Virus_Mutant", "Unknown"],
+          "default": "Unknown"
+        }
+      },
+      "additionalProperties": false
+    },
+    "selfDestructProtocol": {
+      "type": "object",
+      "properties": {
+        "isActive": {
+          "type": "boolean",
+          "description": "Si es true, la pulsera se autodestruye al detectar fugas B.O.W."
+        },
+        "countdown": {
+          "type": "integer",
+          "minimum": 5,
+          "maximum": 60,
+          "description": "Segundos antes de explosión (solo S-Class)."
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "if": {
+    "properties": {
+      "securityLevel": { "const": "S-Class" }
+    }
+  },
+  "then": {
+    "required": ["selfDestructProtocol"],
+    "properties": {
+      "selfDestructProtocol": {
+        "properties": {
+          "isActive": { "const": true }
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "braceletId": "UMB-H79-V2",
+      "securityLevel": "A-Class",
+      "owner": {
+        "employeeId": "73941Z",
+        "department": "Virology"
+      },
+      "lastAccess": "1998-07-24T03:15:00Z",
+      "activeRestrictions": ["Lab_Under_Quarantine"],
+      "biometricData": {
+        "bloodType": "AB+",
+        "infectionStatus": "T-Virus_Carrier"
+      }
+    }
+  ]
+}
